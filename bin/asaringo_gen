@@ -5,19 +5,19 @@ TEMPLATE="template"
 NAMES=(a b c d e f g)
 
 if [ $# -eq 0 ]; then
-    cargo generate --git "$ASARINGO_RIPOSITORY_PATH" --name "solve" template > /dev/null 2>&1
+    cargo generate --git "$RIPOSITORY_PATH" --name "solve" template > /dev/null 2>&1
     echo solve バイナリクレートを作成✨
 elif [[ "$1" =~ ^[1-7]$ ]]; then
     COUNT=$1
     for ((i=0; i<COUNT; i++)); do
         NAME=${NAMES[i]}
-        cargo generate --git "$ASARINGO_RIPOSITORY_PATH" --name "$NAME" template > /dev/null 2>&1
+        cargo generate --git "$RIPOSITORY_PATH" --name "$NAME" template > /dev/null 2>&1
         echo $NAME バイナリクレートを作成✨
     done
 else
     # 数字以外が渡された場合、その名前で1つのプロジェクトを生成
     NAME=$1
-    cargo generate --git "$ASARINGO_RIPOSITORY_PATH" --name "$NAME" template > /dev/null 2>&1
+    cargo generate --git "$RIPOSITORY_PATH" --name "$NAME" template > /dev/null 2>&1
     echo $NAME バイナリクレートを作成✨
 fi
 
