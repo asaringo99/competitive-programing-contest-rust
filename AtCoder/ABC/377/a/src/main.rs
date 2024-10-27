@@ -51,9 +51,27 @@ macro_rules! ptv {
 }
 
 fn main() {
-    let n: i32;
-    let mut a_v: Vec<String>;
-    scan!(n);
-    scanv!(n, a_v, String);
-    ptv!(a_v)
+    let s: String;
+    scan!(s);
+    if &s == "ABC" {
+        pt!("Yes")
+    }
+    else if &s == "ACB" {
+        pt!("Yes")
+    }
+    else if &s == "BAC" {
+        pt!("Yes")
+    }
+    else if &s == "BCA" {
+        pt!("Yes")
+    }
+    else if &s == "CAB" {
+        pt!("Yes")
+    }
+    else if &s == "CBA" {
+        pt!("Yes")
+    }
+    else {
+        pt!("No")
+    }
 }
