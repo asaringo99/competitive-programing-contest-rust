@@ -1,22 +1,35 @@
 #!/bin/bash
 
+################# usage ###################
+
+# - asaringo_gen <dir_name> <count[1~7]>
+# - asaringo_gen <dir_name> <name>
+# - asaringo_gen <dir_name>
+# - asaringo_gen
+
+###########################################
+
 TEMPLATE="template"
 
 NAMES=(a b c d e f g)
-
 if [ $# -eq 0 ]; then
     cargo generate --git "$RIPOSITORY_PATH" --name "solve" template > /dev/null 2>&1
     echo solve バイナリクレートを作成✨
-elif [[ "$1" =~ ^[1-7]$ ]]; then
-    COUNT=$1
+elif [ $# -eq 1 ]; then
+    mkdir $1 && cd $1
+    cargo generate --git "$RIPOSITORY_PATH" --name "solve" template > /dev/null 2>&1
+    echo solve バイナリクレートを作成✨
+elif [[ "$2" =~ ^[1-7]$ ]]; then
+    mkdir $1 && cd $1
+    COUNT=$2
     for ((i=0; i<COUNT; i++)); do
         NAME=${NAMES[i]}
         cargo generate --git "$RIPOSITORY_PATH" --name "$NAME" template > /dev/null 2>&1
         echo $NAME バイナリクレートを作成✨
     done
 else
-    # 数字以外が渡された場合、その名前で1つのプロジェクトを生成
-    NAME=$1
+    mkdir $1 && cd $1
+    NAME=$2
     cargo generate --git "$RIPOSITORY_PATH" --name "$NAME" template > /dev/null 2>&1
     echo $NAME バイナリクレートを作成✨
 fi
