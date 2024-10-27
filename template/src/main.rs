@@ -52,8 +52,8 @@ macro_rules! ptv {
 
 fn main() {
     let n: i32;
-    let mut a_v: Vec<String>;
+    let mut a_v: Vec<i64>;
     scan!(n);
-    scanv!(n, a_v, String);
+    scanv!(n, a_v, i64);
     ptv!(a_v)
 }
