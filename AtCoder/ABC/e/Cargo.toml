@@ -1,0 +1,9 @@
+[package]
+name = "template"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+proconio = "0.5.0"
+whiteread = "0.5.0"
+text_io = "0.1.12"
