@@ -55,5 +55,4 @@ fn main() {
     let mut a_v: Vec<i64>;
     scan!(n);
     scanv!(n, a_v, i64);
-    ptv!(a_v)
 }

@@ -1,3 +1,5 @@
+use std::collections::HashSet;
+
 use text_io::read;
 
 macro_rules! scan {
@@ -51,9 +53,22 @@ macro_rules! ptv {
 }
 
 fn main() {
-    let n: i32;
+    let n: i32 = 8;
     let mut a_v: Vec<String>;
-    scan!(n);
     scanv!(n, a_v, String);
-    ptv!(a_v)
+    let mut set = HashSet::new();
+    for i in 0..n {
+        for (j, c) in a_v[i as usize].as_str().chars().enumerate() {
+            if c == '#' {
+                for x in 0..n {
+                    set.insert((x as i32, j as i32));
+                }
+                for y in 0..n {
+                    set.insert((i as i32, y as i32));
+                }
+            }
+        }
+    }
+    let res = n * n - (set.len() as i32);
+    pt!(res)
 }
