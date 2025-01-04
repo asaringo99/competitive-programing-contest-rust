@@ -1,4 +1,3 @@
-use std::cmp::{max, min};
 use text_io::read;
 
 macro_rules! scan {
