@@ -1,6 +1,10 @@
 #!/bin/bash
 
-output_file=$COMPETITIVE_PROGRAMING_CONTEST_RUST_PROJECT_PATH/.vscode/settings.json
+dir=$(cd $(dirname $0); pwd)
+
+mkdir -p $dir/../../.vscode
+
+output_file=$dir/../../.vscode/settings.json
 
 # Cargo.tomlのパスをすべてリストアップし、JSON形式に変換
 echo "{" > "$output_file"

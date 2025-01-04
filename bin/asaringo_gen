@@ -16,11 +16,11 @@ if [ $# -eq 0 ]; then
     cargo generate --git "$RIPOSITORY_PATH" --name "solve" template > /dev/null 2>&1
     echo solve バイナリクレートを作成✨
 elif [ $# -eq 1 ]; then
-    mkdir $1 && cd $1
+    mkdir -p $1 && cd $1
     cargo generate --git "$RIPOSITORY_PATH" --name "solve" template > /dev/null 2>&1
     echo solve バイナリクレートを作成✨
 elif [[ "$2" =~ ^[1-7]$ ]]; then
-    mkdir $1 && cd $1
+    mkdir -p $1 && cd $1
     COUNT=$2
     for ((i=0; i<COUNT; i++)); do
         NAME=${NAMES[i]}
@@ -28,7 +28,7 @@ elif [[ "$2" =~ ^[1-7]$ ]]; then
         echo $NAME バイナリクレートを作成✨
     done
 else
-    mkdir $1 && cd $1
+    mkdir -p $1 && cd $1
     NAME=$2
     cargo generate --git "$RIPOSITORY_PATH" --name "$NAME" template > /dev/null 2>&1
     echo $NAME バイナリクレートを作成✨
